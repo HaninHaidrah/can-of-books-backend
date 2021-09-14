@@ -1,10 +1,12 @@
-"use strict";
 
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-require("dotenv").config();
-const cors = require("cors");
+'use strict'
+
+const express=require('express');
+const app=express()
+const mongoose = require('mongoose');
+require('dotenv').config();
+const cors=require('cors');
+
 app.use(cors());
 app.use(express.json());
 
@@ -13,19 +15,18 @@ const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connect(`${MONGO_URL}`);
 
-const bookSeed = require("./helpers/bookSeed.helpers");
+const bookSeed = require('./helpers/bookSeed.helpers');
 // bookSeed();
 
-const {
-  getbook,
-  createBook,
-  deleteBook,
-} = require("./controllers/books.controller");
-app.get("/books", getbook);
+const {getbook, createBook, deleteBook,updateBook}=require('./controllers/books.controller');
+app.get('/books',getbook)
 
-app.post("/books", createBook);
-app.delete("/books/:Book_id", deleteBook);
+app.post('/books', createBook);
+app.delete('/books/:Book_id', deleteBook);
+app.update('/books/:Book_id',updateBook)
 
-app.listen(PORT, () => {
-  console.log(`server here${PORT}`);
-});
+app.listen(PORT,()=>{
+ console.log(`server here${PORT}`)
+}
+)
+
