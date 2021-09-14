@@ -36,9 +36,28 @@ const createBook = (request, response) => {
     });
   
   }
+  const updateBook = (request, response) => {
+    
+  
+    const { title, description, email, status } = request.body;
+    const bookId = request.params.Book_id;
+  
+    bookModel.findByIdAndUpdate({ _id: bookId }, {title, description, email, status }, { new: true }, (error, updatedBook) => {
+  
+      response.json(updatedBook);
+    });
+  
+  
+  }
+  
+
+
+
+
   
   module.exports = {
     getbook,
     createBook,
-    deleteBook
+    deleteBook,
+    updateBook
   }
