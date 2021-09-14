@@ -10,11 +10,10 @@ const cors=require('cors');
 app.use(cors());
 app.use(express.json());
 
-const PORT=process.env.PORT
-const MONGO_URL=process.env.MONGO_URL;
-const DB_NAME=process.env.DB_NAME;
+const PORT = process.env.PORT;
+const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(`${MONGO_URL}/${DB_NAME}`);
+mongoose.connect(`${MONGO_URL}`);
 
 const bookSeed = require('./helpers/bookSeed.helpers');
 // bookSeed();
