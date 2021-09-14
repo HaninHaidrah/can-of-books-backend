@@ -23,7 +23,7 @@ app.get('/books',getbook)
 
 app.post('/books', createBook);
 app.delete('/books/:Book_id', deleteBook);
-app.update('/books/:Book_id',updateBook)
+app.put('/books/:Book_id',updateBook)
 
 app.listen(PORT,()=>{
  console.log(`server here${PORT}`)
