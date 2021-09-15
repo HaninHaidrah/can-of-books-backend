@@ -19,6 +19,9 @@ const bookSeed = require('./helpers/bookSeed.helpers');
 // bookSeed();
 
 const {getbook, createBook, deleteBook,updateBook}=require('./controllers/books.controller');
+app.get('/',(request,response)=>{
+    response.send('hi')
+})
 app.get('/books',getbook)
 
 app.post('/books', createBook);
