@@ -22,7 +22,7 @@ const {getbook, createBook, deleteBook,updateBook}=require('./controllers/books.
 app.get('/',(request,response)=>{
     response.send('hi')
 })
-app.get('/books',getbook)
+app.get('/books/:email',getbook)
 
 app.post('/books', createBook);
 app.delete('/books/:Book_id', deleteBook);

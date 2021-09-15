@@ -4,19 +4,18 @@ const bookModel=require('../models/book.model')
 
 const getbook=(request,respond)=>{
 
-    bookModel.find((error,bookdata)=>{
+    bookModel.find({ email: request.params.email },(error,bookdata)=>{
         respond.json(bookdata)
 
     })
 }
-
 const createBook = (request, response) => {
 
-    const { title, description, email, status } = request.body;
+    const { title, description, email, status ,img} = request.body;
   
   
     const newbook = new bookModel({
-        title, description, email, status
+        title, description, email, status,img
     });
   
     newbook.save();
@@ -39,10 +38,10 @@ const createBook = (request, response) => {
   const updateBook = (request, response) => {
     
   
-    const { title, description, email, status } = request.body;
+    const { title, description, email, status,img } = request.body;
     const bookId = request.params.Book_id;
   
-    bookModel.findByIdAndUpdate({ _id: bookId }, {title, description, email, status }, { new: true }, (error, updatedBook) => {
+    bookModel.findByIdAndUpdate({ _id: bookId }, {title, description, email, status,img }, { new: true }, (error, updatedBook) => {
   
       response.json(updatedBook);
     });
