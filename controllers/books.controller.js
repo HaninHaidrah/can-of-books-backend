@@ -4,12 +4,11 @@ const bookModel=require('../models/book.model')
 
 const getbook=(request,respond)=>{
 
-    bookModel.find((error,bookdata)=>{
+    bookModel.find({ email: request.params.email },(error,bookdata)=>{
         respond.json(bookdata)
 
     })
 }
-
 const createBook = (request, response) => {
 
     const { title, description, email, status } = request.body;

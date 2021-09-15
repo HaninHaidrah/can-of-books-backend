@@ -8,7 +8,7 @@ const bookSeed = () => {
     description:
       "AthleteSpeakers has built very close direct relationships over the years with top athletes, agents, publicists and managers. We specialize in assisting small, medium, and large companies as well as event planners with booking athletes like Kevin White for speaking engagements and appearances at trade shows, golf outings, casinos, conferences, conventions, and corporate events",
     status: "available",
-    email: "haneen.hadey@gmail.com",
+    email: "haneenhadey@gmail.com",
   });
   firstBook.save();
 

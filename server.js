@@ -16,13 +16,13 @@ const MONGO_URL = process.env.MONGO_URL;
 mongoose.connect(`${MONGO_URL}`);
 
 const bookSeed = require('./helpers/bookSeed.helpers');
-// bookSeed();
+bookSeed();
 
 const {getbook, createBook, deleteBook,updateBook}=require('./controllers/books.controller');
 app.get('/',(request,response)=>{
     response.send('hi')
 })
-app.get('/books',getbook)
+app.get('/books/:email',getbook)
 
 app.post('/books', createBook);
 app.delete('/books/:Book_id', deleteBook);
